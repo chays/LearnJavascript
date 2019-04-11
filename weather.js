@@ -10,15 +10,16 @@ function saveCoords(coordsObj){
   localStorage.setItem(COORDS,JSON.stringify(coordsObj));
 }
 
-function handleGeoSuccess(){
+function handleGeoSuccess(position){
   const latitude=position.coords.latitude;
-  const longitude= position.coords.loadCoords;
+  const longitude= position.coords.longitude;
   const coordsObj={
     latitude,
     longitude,
   }
   saveCoords(coordsObj);
   getWeather(latitude,longitude);
+  console.log(position);
 }
 
 function handleGeoError(){
@@ -36,7 +37,7 @@ function loadCoords(){
 
   } else {
     //getWeather
-    const parseCoords=JSON.parse(loadCoords);
+    const parseCoords=JSON.parse(loadedCoords);
     console.log(parseCoords)
   }
 }

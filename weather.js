@@ -10,15 +10,17 @@ function saveCoords(coordsObj){
   localStorage.setItem(COORDS,JSON.stringify(coordsObj));
 }
 
-function handleGeoSuccess(){
+function handleGeoSuccess(position){
+  console.log(position)
   const latitude=position.coords.latitude;
-  const longitude= position.coords.loadCoords;
+  const longitude= position.coords.longitude;
   const coordsObj={
     latitude,
     longitude,
   }
   saveCoords(coordsObj);
   getWeather(latitude,longitude);
+  
 }
 
 function handleGeoError(){

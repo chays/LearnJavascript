@@ -11,7 +11,6 @@ function saveCoords(coordsObj){
 }
 
 function handleGeoSuccess(position){
-  console.log(position)
   const latitude=position.coords.latitude;
   const longitude= position.coords.longitude;
   const coordsObj={
@@ -20,7 +19,7 @@ function handleGeoSuccess(position){
   }
   saveCoords(coordsObj);
   getWeather(latitude,longitude);
-  
+  console.log(position);
 }
 
 function handleGeoError(){
@@ -38,7 +37,7 @@ function loadCoords(){
 
   } else {
     //getWeather
-    const parseCoords=JSON.parse(loadCoords);
+    const parseCoords=JSON.parse(loadedCoords);
     console.log(parseCoords)
   }
 }

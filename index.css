@@ -41,3 +41,21 @@ h1{
     opacity: 1;
   }
 }
+
+.js-weather{
+  position: absolute;
+  top:1rem;
+  right:1rem;
+  color:#fff;
+}
+.js-clock{
+  text-align:center;
+  padding-top:5rem;
+}
+.js-clock h1{
+  font-size:8rem;
+  color:#fff;
+  letter-spacing:-2px;
+.js-form, .js-greetings, .js-toDoForm{
+  text-align:center;
+}

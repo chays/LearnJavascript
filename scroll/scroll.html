@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .show-on-scroll{
+      border:1px solid lime;
+      height:10240px;
+    }
+    .show-on-scroll { visibility: hidden; }
+    .show-on-scroll.shown { visibility: visible; }
+  </style>
+  <script>
+  window.addEventListener('scroll', function() {
+    var el = document.querySelector('.show-on-scroll');
+    
+    if(window.scrollY >= 400) el.classList.add('shown');
+    else el.classList.remove('shown');
+  });
+    
+  </script>
+</head>
+<body>
+  <div class="show-on-scroll">
+    dfdfdfd
+  </div>
+</body>
+</html>

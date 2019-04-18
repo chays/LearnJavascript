@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <style>
+    .wrap{
+      padding: 95px 0 105px;
+      color: #fff;
+      background: #002d4e;    
+      display:flex;  
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      width:1280px;
+      margin:0 auto;
+    }
+    .con{
+      position: relative;
+      top: 50px;
+      opacity: 0;
+      width:600px;
+      transition: all .4s;
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+  
+    }
+    .bg{      
+      width: 600px;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      top: 50px;
+      opacity: 0;
+      transition: all .4s;
+    }
+    .scroll-check.in{
+      top: 0;
+      opacity: 1;
+      transition: all 1s .2s;
+    }
+
+  </style>
+</head>
+<body>
+<div class="wrap" style="height:780px;"></div>   
+<div class="wrap" style="height:780px;"></div>  
+<div class="wrap">
+  <div class="con scroll-check">
+    <p class="copy">
+      잊지못할 특별한 순간,<br>
+      자연과 함께 만들어가는 어울림
+    </p>
+  </div>
+  <div class="bg scroll-check">
+    <img src="https://phoenixhnr.co.kr/images/ko/main/hnr/brand-story.jpg" alt="">
+  </div>
+</div>
+
+<script>  
+  (function() {
+      var $window = $(window);
+      var $document = $(document);
+      var $target = $('.scroll-check');
+
+      function scrollHandle() {
+          var winHeight = $window.height();
+          var docHeight = $document.outerHeight();
+          var scrollTop = $window.scrollTop();
+          var ratio = (scrollTop / (docHeight - winHeight)).toFixed(2);
+
+          $target.each(function() {
+              var $this = $(this);
+              var isViewportIn = scrollTop > ($this.offset().top - winHeight) + (winHeight / 8);
+              $this.toggleClass('in', isViewportIn);
+          });
+      }
+
+      $window.on('resize scroll', scrollHandle);
+      scrollHandle();
+  })();
+
+</script>
+</body>
+</html>
